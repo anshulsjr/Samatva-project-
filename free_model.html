@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Model Services - SAMATVA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS */
+        .service-section {
+            padding: 50px 0;
+        }
+
+        .service-card {
+            background-color: #f8efe0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: #0b0c0d;
+            margin-top: 0;
+        }
+
+        .btn-primary {
+            background-color: green;
+            border-color: #151718;
+        }
+
+        .btn-primary:hover {
+            background-color: green;
+            border-color: #151817;
+        }
+
+        .consultation-form {
+            display: list-item;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+}
+
+        button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+}
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(5, 10, 150, 55);
+}
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 5px;
+            width: 70%;
+}
+
+         .close {
+            float: right;
+           font-size: 20px;
+           font-weight: bold;
+            cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Your header, navigation, and other content here -->
+
+    <!-- Information Services -->
+        <section class="section paid-model-section">
+            <div class="container">
+             <h2 class="mb-4">Free Model Services</h2>
+            
+            
+             <div class="row g-6 justify-content-center">
+                <!-- Service Offerings -->
+                <div class="row g-6 justify-content-center">
+                    <div class="col-lg-4">
+                    <div class="service-card">
+                        <h3>Depression & Anxiety</h3>
+                        <p>Explore information about Depression, Anxiety, and Stress, its importance, and well-being.</p>
+                        <a href="blog.html" class="btn btn-custom">Learn More</a>
+                     </div>
+                 </div>
+                     
+                    <div class="col-lg-4">
+                    <div class="service-card">
+                        <h3>Reletionships</h3>
+                        <p>How Toxic Relationships From Your Past Are Affecting Your Future</p>
+                        <a href="blog.html" class="btn btn-custom">Learn More</a>
+                     </div>
+                 </div>
+
+                 <div class="col-lg-4">
+                    <div class="service-card">
+                        <h3>Addictions</h3>
+                        <p>Internet addiction is a growing problem in today's world,</p>
+                        <a href="blog.html" class="btn btn-custom">Learn More</a>
+                     </div>
+                 </div>
+
+                 <div class="col-lg-4">
+                    <div class="service-card">
+                        <h3>Physical Health</h3>
+                        <p>Discover the connection between mental health and physical well-being.</p>
+                        <a href="blog.html" class="btn btn-custom">Learn More</a>
+                     </div>
+                 </div>
+                    <div class="col-lg-4">
+                    <div class="service-card">
+                        <h3>Chat with AI</h3>
+                        <p>Chat with our AI bot for instant support and guidance.</p>
+                        <a href="/app/Chat.html" class="btn btn-custom">Chat Now </a>
+                     </div>
+                 </div>
+                 <div class="col-lg-4">
+                    <div class="service-card">
+                        <h3>Healthy Diet</h3>
+                        <p>Learn about the role of a balanced diet in maintaining mental and physical health.</p>
+                        <a href="blog.html" class="btn btn-custom">Learn More</a>
+                     </div>
+                 </div>
+
+                 <div class="row g-6 justify-content-center">
+                    <div class="col-lg-4">
+                    <div class="service-card">
+                        <h2>Individual Counseling</h2>
+                        <ul class="list-unstyled">
+                            <li>First Counseling Free</li>
+                            <li>Priority scheduling for appointments</li>
+                        </ul>
+                        <div class="container">
+      
+                            <button id="openModalBtn">Request Free Counseling</button>
+                        </div>
+                    
+                        <div id="counselingModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h3>Request Free Counseling</h3>
+                                <form id="counselingForm">
+                                    <label for="name">Full Name:</label>
+                                    <input type="text" id="name" name="name" required>
+                    
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required>
+                    
+                                    <label for="phone">Phone Number:</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                    
+                                    <label for="message">Message:</label>
+                                    <textarea id="message" name="message" rows="4" required></textarea>
+                    
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const modal = document.getElementById("counselingModal");
+            const openModalBtn = document.getElementById("openModalBtn");
+            const closeModalBtn = document.getElementsByClassName("close")[0];
+            const counselingForm = document.getElementById("counselingForm");
+        
+            openModalBtn.addEventListener("click", function() {
+                modal.style.display = "block";
+            });
+        
+            closeModalBtn.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+        
+            window.addEventListener("click", function(event) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        
+            counselingForm.addEventListener("submit", function(event) {
+                event.preventDefault();
+                // You can handle form submission here (e.g., send data to server)
+                // Close the modal after submission
+                modal.style.display = "none";
+            });
+        });
+        
+    </script>
+</body>
+</html>
